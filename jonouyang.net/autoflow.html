@@ -1,0 +1,945 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<!-- Mirrored from jonouyang.net/autoflow by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Jul 2025 07:06:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="keywords"  content="web dev,web design,ui ux,product design,designer,media,multimedia,case study,tech,figma,mockup,prototype,prototyping,user profile,user research,ui,ux" />
+      <meta name="description"  content="Multimedia UI/UX Design &amp; Development Portfolio" />
+      <meta name="twitter:card"  content="summary_large_image" />
+      <meta name="twitter:site"  content="@AdobePortfolio" />
+      <meta  property="og:title" content="Jon Ouyang - Autoflow" />
+      <meta  property="og:description" content="Multimedia UI/UX Design &amp; Development Portfolio" />
+      <meta  property="og:image" content="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/3ea454eb-a1b7-4426-af69-1668925e2e0d_rwc_0x0x2480x2471x248026bf.jpg?h=74ea12d9b73bed1318a1fdcd0fb2c29d" />
+        <link rel="icon" href="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/30d954c9-997f-4f42-af1b-1b4c1f466add_carw_1x1x32f849.jpg?h=3defc7dd219a5ee46c147ffefb095652" />
+        <link rel="apple-touch-icon" href="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/a23a22bb-a128-4dd2-a31b-13c0c01da299_carw_1x1x180e350.jpg?h=b1311d75ce6fa504f20d495cb4831bc6" />
+      <link rel="stylesheet" href="dist/css/main.css" type="text/css" />
+      <link rel="stylesheet" href="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/dc7c29fd5cf2b111c2094df3852d9e3317484851338efa.css?h=df01c636c3ed5bca84550688094cb27c" type="text/css" />
+    <link rel="canonical" href="autoflow.html" />
+      <title>Jon Ouyang - Autoflow</title>
+    <script type="text/javascript" src="../use.typekit.net/ik/k5fcb66NzLpnlQObBCv5STM-yVitxgiEajAOiBt0m8vfen3gfHYEBsJzwD9oFDIDWhJhZ2bX5QqoFQByFeIhjQ8KjhJuZRSoZRSXjRgywAIuw2ZRw2Mawej-mkG0dW83da4XZcNC-Av0jhNlOfG0SY4zwKuh-AmaOcuoSeNkieZzde8zOcFzdPUlpWgzS1s?cb=867137821b7eaf38fd2c2ba4ae0fe00a423eeec4" async onload="
+    try {
+      window.Typekit.load();
+    } catch (e) {
+      console.warn('Typekit not loaded.');
+    }
+    "></script>
+  <style>
+    /* Section Nav Styles */
+    #section-nav {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 200px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      background: none;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      padding: 0 0 0 24px;
+      transition: opacity 0.3s;
+    }
+    #section-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    #section-nav li {
+      margin-bottom: 18px;
+    }
+    #section-nav a {
+      color: #1c1c1c;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.08em;
+      transition: color 0.2s, border-bottom 0.2s;
+      border-bottom: 2px solid transparent;
+      padding: 2px 0;
+      outline: none;
+    }
+    #section-nav a.active, #section-nav a:focus, #section-nav a:hover {
+      color: #ff0000;
+      border-bottom: 2px solid #ff0000;
+    }
+    @media (max-width: 1024px) {
+      #section-nav { left: 0; width: 160px; padding-left: 8px; }
+    }
+    @media (max-width: 768px) {
+      #section-nav { display: none; }
+      #jump-to-section-btn { display: block; }
+    }
+    /* Mobile Floating Button */
+    #jump-to-section-btn {
+      display: none;
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 1200;
+      background: #fff;
+      color: #ff0000;
+      border: 1.5px solid #ff0000;
+      border-radius: 50px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 1.1em;
+      font-weight: bold;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 12px 22px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    #jump-to-section-btn:active, #jump-to-section-btn:focus {
+      background: #ff0000;
+      color: #fff;
+      outline: none;
+    }
+    /* Modal Styles */
+    #section-modal {
+      display: none;
+      position: fixed;
+      left: 0; right: 0; bottom: 0; top: 0;
+      background: rgba(0,0,0,0.18);
+      z-index: 1300;
+      align-items: flex-end;
+      justify-content: center;
+      transition: opacity 0.3s;
+    }
+    #section-modal.open { display: flex; }
+    #section-modal .modal-sheet {
+      background: #fff;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto 0 auto;
+      border-radius: 18px 18px 0 0;
+      box-shadow: 0 0 24px rgba(0,0,0,0.08);
+      padding: 32px 24px 24px 24px;
+      animation: fadeInUp 0.3s;
+    }
+    #section-modal ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #section-modal li {
+      margin-bottom: 18px;
+    }
+    #section-modal a {
+      color: #1c1c1c;
+      font-size: 1.15em;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    #section-modal a.active, #section-modal a:focus, #section-modal a:hover {
+      color: #ff0000;
+      text-decoration: underline;
+    }
+    #section-modal .close-modal {
+      position: absolute;
+      right: 24px;
+      top: 18px;
+      background: none;
+      border: none;
+      font-size: 1.7em;
+      color: #1c1c1c;
+      cursor: pointer;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+  <body class="transition-enabled">
+  <nav id="section-nav" aria-label="Section Navigation">
+    <ul>
+      <li><a href="#overview" tabindex="0">Overview</a></li>
+      <li><a href="#challenge" tabindex="0">Challenge</a></li>
+      <li><a href="#research" tabindex="0">Research</a></li>
+      <li><a href="#personas" tabindex="0">Personas</a></li>
+      <li><a href="#wireframes" tabindex="0">Wireframes</a></li>
+      <li><a href="#final-design" tabindex="0">Final Design</a></li>
+      <li><a href="#outcome" tabindex="0">Outcome</a></li>
+    </ul>
+  </nav>
+  <button id="jump-to-section-btn" aria-label="Jump to Section" tabindex="0">Jump to Section</button>
+  <div id="section-modal" role="dialog" aria-modal="true" aria-label="Section Navigation">
+    <div class="modal-sheet">
+      <button class="close-modal" aria-label="Close Navigation">&times;</button>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#challenge">Challenge</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#personas">Personas</a></li>
+        <li><a href="#wireframes">Wireframes</a></li>
+        <li><a href="#final-design">Final Design</a></li>
+        <li><a href="#outcome">Outcome</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class='page-background-video page-background-video-with-panel'>
+  </div>
+  <div class="js-responsive-nav">
+    <div class="responsive-nav has-social">
+      <div class="close-responsive-click-area js-close-responsive-nav">
+        <div class="close-responsive-button"></div>
+      </div>
+          <nav data-hover-hint="nav">
+      <div class="page-title">
+        <a href="overview.html" >Overview</a>
+      </div>
+              <ul class="group">
+                  <li class="gallery-title"><a href="ui-ux.html" >UI / UX</a></li>
+            <li class="project-title"><a href="zing-delivery.html" >Zing Delivery</a></li>
+            <li class="project-title"><a href="autoflow.html" class="active">Autoflow</a></li>
+              </ul>
+              <ul class="group">
+                  <li class="gallery-title"><a href="visual-design.html" >Visual Design</a></li>
+            <li class="project-title"><a href="graphic-design-2.html" >Graphic Design</a></li>
+            <li class="project-title"><a href="digital-design.html" >Digital Design</a></li>
+              </ul>
+              <ul class="group">
+                  <li class="gallery-title"><a href="multimedia-work.html" >Multimedia Work</a></li>
+            <li class="project-title"><a href="photography.html" >Photography</a></li>
+            <li class="project-title"><a href="illustrations.html" >Illustrations</a></li>
+            <li class="project-title"><a href="audio-visual.html" >Audio &amp; Visual</a></li>
+              </ul>
+      <div class="link-title">
+        <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:5caea45c-a76e-4e7a-a1b1-5b4d5598d648" target="_blank">Resumé</a>
+      </div>
+      <div class="page-title">
+        <a href="contact.html" >Contact</a>
+      </div>
+              <div class="social pf-nav-social" data-hover-hint="navSocialIcons">
+                <ul>
+                </ul>
+              </div>
+          </nav>
+    </div>
+  </div>
+  <div class="site-wrap cfix">
+    <div class="site-container">
+      <div class="site-content e2e-site-content">
+        <div class="sidebar-content">
+          <header class="site-header">
+              <div class="logo-wrap" data-hover-hint="logo">
+                    <div class="logo e2e-site-logo-text logo-image  ">
+    <a href="intro.html" class="image-normal image-link">
+      <img src="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/8927bfa6-fa28-4919-802f-a652d70a2d72_rwc_65x164x500x266x4096aff2.png?h=47772f7aa1479fbc2d122b6ceef26dba" alt="Jon Ouyang">
+    </a>
+</div>
+              </div>
+  <div class="hamburger-click-area js-hamburger">
+    <div class="hamburger">
+      <i></i>
+      <i></i>
+      <i></i>
+    </div>
+  </div>
+          </header>
+              <nav data-hover-hint="nav">
+      <div class="page-title">
+        <a href="overview.html" >Overview</a>
+      </div>
+              <ul class="group">
+                  <li class="gallery-title"><a href="ui-ux.html" >UI / UX</a></li>
+            <li class="project-title"><a href="zing-delivery.html" >Zing Delivery</a></li>
+            <li class="project-title"><a href="autoflow.html" class="active">Autoflow</a></li>
+              </ul>
+              <ul class="group">
+                  <li class="gallery-title"><a href="visual-design.html" >Visual Design</a></li>
+            <li class="project-title"><a href="graphic-design-2.html" >Graphic Design</a></li>
+            <li class="project-title"><a href="digital-design.html" >Digital Design</a></li>
+              </ul>
+              <ul class="group">
+                  <li class="gallery-title"><a href="multimedia-work.html" >Multimedia Work</a></li>
+            <li class="project-title"><a href="photography.html" >Photography</a></li>
+            <li class="project-title"><a href="illustrations.html" >Illustrations</a></li>
+            <li class="project-title"><a href="audio-visual.html" >Audio &amp; Visual</a></li>
+              </ul>
+      <div class="link-title">
+        <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:5caea45c-a76e-4e7a-a1b1-5b4d5598d648" target="_blank">Resumé</a>
+      </div>
+      <div class="page-title">
+        <a href="contact.html" >Contact</a>
+      </div>
+                  <div class="social pf-nav-social" data-hover-hint="navSocialIcons">
+                    <ul>
+                    </ul>
+                  </div>
+              </nav>
+        </div>
+        <main>
+              <div class="masthead" data-context="page.masthead" data-hover-hint="mastheadOptions">
+                <div class="masthead-contents">
+                  <div class="masthead-text js-masthead-text">
+                    <div data-context="page.masthead" data-hover-hint="mastheadTitle"><h1 decorator="inlineTextEditable" contenteditable="false" class="js-inline-text-editable preserve-whitespace main-text rich-text module-text" data-text-keypath="customizations.masthead.title.text" value="Autoflow">Autoflow</h1></div>
+                    
+                    <div class="masthead-buttons">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+  <div class="page-container js-site-wrap" data-context="page.page.container" data-hover-hint="pageContainer">
+    <section class="page standard-modules">
+        <header class="page-header content" data-context="pages" data-identity="id:p6712ec556517c76baddc2a65122f7880f45762a013299e48b5f6e" data-hover-hint="pageHeader" data-hover-hint-id="p6712ec556517c76baddc2a65122f7880f45762a013299e48b5f6e">
+        </header>
+      <div class="page-content js-page-content" data-context="pages" data-identity="id:p6712ec556517c76baddc2a65122f7880f45762a013299e48b5f6e">
+        <div id="project-canvas" class="js-project-modules modules content">
+          <div id="project-modules">
+              
+              <div class="project-module module image project-module-image js-js-project-module"  style="padding-top: px;
+padding-bottom: 45px;
+  max-width: 650px;
+">
+
+  
+
+  
+     <div class="js-lightbox" data-src="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/a43ea1f4-3926-4e40-8bde-7d3f1148cae67255.jpg?h=d895de17226b69db71810657a37720f6">
+           <img
+             class="js-lazy e2e-site-project-module-image"
+             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+             data-src="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/a43ea1f4-3926-4e40-8bde-7d3f1148cae6_rw_19207451.jpg?h=e9c303a7acb4ce3420b4af5f81b0627e"
+             data-srcset="https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/a43ea1f4-3926-4e40-8bde-7d3f1148cae6_rw_600.jpeg?h=0d309a4475719cf85b1069124a82d98b 600w,https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/a43ea1f4-3926-4e40-8bde-7d3f1148cae6_rw_1200.jpeg?h=467e8fd8c2e131112121aaf388aad903 1200w,https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/a43ea1f4-3926-4e40-8bde-7d3f1148cae6_rw_1920.jpeg?h=e9c303a7acb4ce3420b4af5f81b0627e 1920w,"
+             data-sizes="(max-width: 1920px) 100vw, 1920px"
+             width="1920"
+             height="0"
+             style="padding-bottom: 87.83%; background: rgba(0, 0, 0, 0.03)"
+             
+           >
+     </div>
+  
+
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree" >
+  <div class="tree-wrapper valign-top">
+      <div class="tree-child-wrapper" style="flex: 1">
+        
+        
+        
+        
+        
+        <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: 0px;
+padding-bottom: 0px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="main-text"><span style="font-size:26px;" class="texteditor-inline-fontsize"><span style="color:#1c1c1c;" class="texteditor-inline-color"><span class="bold">My Role</span></span></span></div><div style="text-align:left;" class="main-text"><span class="texteditor-inline-color" style="color:#4c4c4c;">UI / UX Designer, Researcher</span></div><div style="text-align:left;" class="main-text"><span style="font-size:26px;" class="texteditor-inline-fontsize"><span style="color:#1c1c1c;" class="texteditor-inline-color"><span class="bold">Company</span></span></span></div><div style="text-align:left;" class="main-text"><span class="texteditor-inline-color" style="color:#4c4c4c;">Autoflow</span></div></div>
+</div>
+
+        
+        
+        
+      </div>
+      <div class="tree-child-wrapper" style="flex: 1">
+        
+        
+        
+        
+        
+        <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: 0px;
+padding-bottom: px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="main-text"><span style="font-size:26px;" class="texteditor-inline-fontsize"><span style="color:#1c1c1c;" class="texteditor-inline-color"><span class="bold">Team Size</span></span></span></div><div style="text-align:left;" class="main-text"><span class="texteditor-inline-color" style="color:#4c4c4c;">2 PD • 1 PM • 1 FE Engineer</span></div><div style="text-align:left;" class="main-text"><span style="font-size:26px;" class="texteditor-inline-fontsize"><span style="color:#1c1c1c;" class="texteditor-inline-color"><span class="bold">Objectives</span></span></span></div><div style="text-align:left;" class="main-text"><span class="texteditor-inline-color" style="color:#4c4c4c;">User-Friendly Redesign, UI / UX, Enhanced Usability, Digital Marketing, Mobile Optimization</span></div></div>
+</div>
+
+        
+        
+        
+      </div>
+  </div>
+</div>
+
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: px;
+padding-bottom: 0px;
+  max-width: 1400px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;"><div style="text-align:left;">Autoflow is a <span class="bold">SaaS platform</span> tailored for family-owned <span class="bold">mechanic shops,</span> designed to simplify daily operations and improve workflows. By providing an intuitive interface, it <span class="bold">allows businesses</span> to better <span class="bold">manage</span> their processes. The platform supports:</div></div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: 0px;
+padding-bottom: px;
+  max-width: 650px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;">1) Technicians in <span class="bold">organizing</span> and <span class="bold">completing</span> <span class="bold">work orders.</span></div><div style="text-align:left;">2) Customers with <span class="bold">real-time repair</span> tracking.</div><div style="text-align:left;">3) Shop owners in <span class="bold">overseeing teams</span> and <span class="bold">maintaining efficiency.</span></div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: px;
+padding-bottom: 0px;
+  max-width: 1400px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;">However, despite its promise, Autoflow <span class="bold">faced significant obstacles</span> that <span class="bold">limited</span> its impact:<br></div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: 25px;
+padding-bottom: 0px;
+  max-width: 650px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;">1) <span class="bold">Dated</span> UI and <span class="bold">inconsistent</span> graphic <span class="bold">design</span> reduced usability.</div><div style="text-align:left;">2) <span class="bold">Poor mobile adaptability</span> restricted on-the-go access for users.</div><div style="text-align:left;">3)<span class="bold"> Weak visual appeal </span>and <span class="bold">lack</span> of brand <span class="bold">identity</span> made it <span class="bold">less engaging</span> for its core demographic.</div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: px;
+padding-bottom: px;
+  max-width: 1400px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;"><span class="bold"><span style="font-weight:400;">Autoflow's</span> primary objective</span> was to <span class="bold">improve</span> user task<span class="bold"> </span><span class="texteditor-inline-color" style="color:#4c4c4c;">efficiency</span><span class="texteditor-inline-color" style="color:#4c4c4c;"> </span><span class="bold">by</span> <span class="bold">30%</span> and <span class="bold">increase</span> feature adoption for task prioritization tools <span class="bold">by</span> <span class="bold">50%.</span></div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: px;
+padding-bottom: px;
+  max-width: 1400px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="line-height:30px;text-align:left;" class="texteditor-inline-lineheight"><span class="texteditor-inline-fontsize" style="font-size:24px;"><span class="texteditor-inline-color" style="color:#4c4c4c;"><span class="bold"><span class="texteditor-inline-color" style="color:#1c1c1c;">This called for a</span> <span class="texteditor-inline-color" style="color:#ff0000;">comprehensive redesign</span> <span class="texteditor-inline-color" style="color:#1c1c1c;">to enhance</span> <span class="texteditor-inline-color" style="color:#ff0000;">functionality,</span> <span class="texteditor-inline-color" style="color:#1c1c1c;">visual</span> <span class="texteditor-inline-color" style="color:#ff0000;">cohesion,</span> <span class="texteditor-inline-color" style="color:#1c1c1c;">and market</span> <span class="texteditor-inline-color" style="color:#ff0000;">impact.</span></span></span></span></div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="title"><span class="bold">How Might We... create a <span style="color:#ff0000;" class="texteditor-inline-color">seamless <span style="color:#1c1c1c;" class="texteditor-inline-color">platform</span></span> that <span style="color:#222222;" class="texteditor-inline-color"><span style="color:#ff0000;" class="texteditor-inline-color">empowers</span> mechanics</span>, <span style="color:#ff0000;" class="texteditor-inline-color">engages</span> customers, and <span style="color:#ff0000;" class="texteditor-inline-color">simplifies</span> management?</span></div><div style="text-align:left;" class="main-text">By <span class="bold">reimagining Autoflow's design,</span> we sought to create a platform that <span class="bold">meets</span> the unique <span class="bold">needs</span> of family-owned mechanic shops, making workflows <span class="bold">simpler,</span> enhancing <span class="bold">customer engagement,</span> and supporting <span class="bold">seamless management</span> across all devices.</div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: px;
+padding-bottom: px;
+  max-width: 1400px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="title"><span class="texteditor-inline-color" style="color:#222222;"><span class="bold">User Research and Insights</span></span></div><div style="text-align:left;">During research, we <span class="bold">interviewed</span> mechanics, shop owners, and customers to <span class="bold">understand</span> their <span class="bold">challenges</span> in managing and tracking repairs.</div><div style="text-align:left;"><br>Users <span class="bold">reported difficulty</span> navigating the platform, with mechanics <span class="bold">struggling</span> to <span class="bold">organize</span> work orders, customers <span class="bold">lacking</span> mobile repair <span class="bold">updates,</span> and shop owners needing <span class="bold">better tools</span> for oversight.</div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="title"><span class="texteditor-inline-color" style="color:#ff0000;"><span class="bold">Key Research Insights</span></span></div><div style="text-align:left;">During research, we <span class="bold">interviewed</span> mechanics, shop owners, and customers to <span class="bold">understand</span> their <span class="bold">challenges</span> in managing and tracking repairs.</div><div style="text-align:left;"><br>Users <span class="bold">reported difficulty</span> navigating the platform, with mechanics <span class="bold">struggling</span> to <span class="bold">organize</span> work orders, customers <span class="bold">lacking</span> mobile repair <span class="bold">updates,</span> and shop owners needing <span class="bold">better tools</span> for oversight.</div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="title"><span class="texteditor-inline-color" style="color:#ff0000;"><span class="bold">Research Methods & Participants</span></span></div><div style="text-align:left;">During research, we <span class="bold">interviewed</span> mechanics, shop owners, and customers to <span class="bold">understand</span> their <span class="bold">challenges</span> in managing and tracking repairs.</div><div style="text-align:left;"><br>Users <span class="bold">reported difficulty</span> navigating the platform, with mechanics <span class="bold">struggling</span> to <span class="bold">organize</span> work orders, customers <span class="bold">lacking</span> mobile repair <span class="bold">updates,</span> and shop owners needing <span class="bold">better tools</span> for oversight.</div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="main-text"><span style="color:#1c1c1c;" class="texteditor-inline-color"><span class="bold">"The new layout makes it so much <span style="color:#ff0000;" class="texteditor-inline-color">easier</span> to <span style="color:#ff0000;" class="texteditor-inline-color">find</span> what I need <span style="color:#ff0000;" class="texteditor-inline-color">without getting lost</span> in menus."</span></span> <span class="italic">— Carlos M.</span></div><div style="text-align:left;" class="main-text"><span style="color:#1c1c1c;" class="texteditor-inline-color"><span class="bold">"I love being able to <span style="color:#ff0000;" class="texteditor-inline-color">check repair updates</span> on my phone—it's way more <span style="color:#ff0000;" class="texteditor-inline-color">convenient</span> for me and my customers." </span><span style="color:#6c6c6c;" class="texteditor-inline-color"><span class="italic">— Luis O.</span></span></span></div></div>
+</div>
+
+              
+              
+              
+              
+              
+              <div class="project-module module image project-module-image js-js-project-module"  style="padding-top: px;
+padding-bottom: px;
+">
+
+  
+
+  
+     <div class="js-lightbox" data-src="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/d6290e86-3f92-40e8-9b8b-65e80766106386fa.jpg?h=f319cf076756720077ef187b3611173b">
+           <img
+             class="js-lazy e2e-site-project-module-image"
+             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+             data-src="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/d6290e86-3f92-40e8-9b8b-65e807661063_rw_3840b3c3.jpg?h=5ffce9338eb0bc0b584a1e7b612fc56f"
+             data-srcset="https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/d6290e86-3f92-40e8-9b8b-65e807661063_rw_600.jpeg?h=b86856cfe4b3c27b9b5e7fab40272f31 600w,https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/d6290e86-3f92-40e8-9b8b-65e807661063_rw_1200.jpeg?h=43e53ef63a514bc10d0cf470eb7ef97e 1200w,https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/d6290e86-3f92-40e8-9b8b-65e807661063_rw_1920.jpeg?h=5efbaa059e7f7e29a5b7d2407b0ef66b 1920w,https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/d6290e86-3f92-40e8-9b8b-65e807661063_rw_3840.jpeg?h=5ffce9338eb0bc0b584a1e7b612fc56f 3840w,"
+             data-sizes="(max-width: 3840px) 100vw, 3840px"
+             width="3840"
+             height="0"
+             style="padding-bottom: 29%; background: rgba(0, 0, 0, 0.03)"
+             
+           >
+     </div>
+  
+
+    <div class="project-module module-caption-container js-caption-container align-left">
+      <div class="rich-text module-caption js-text-editable"><p>Final mobile-first prototype file overview</p></div>
+    </div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree" >
+  <div class="tree-wrapper valign-top">
+      <div class="tree-child-wrapper" style="flex: 1657000000">
+        
+        <div class="project-module module image project-module-image js-js-project-module"  style="padding-top: px;
+padding-bottom: px;
+">
+
+  
+
+  
+     <div class="js-lightbox" data-src="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/5b27cbf0-eeff-418e-8940-33ff75a3ef5713a0.png?h=bf6ecdb456537da3c037a00122d9593a">
+           <img
+             class="js-lazy e2e-site-project-module-image"
+             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+             data-src="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/5b27cbf0-eeff-418e-8940-33ff75a3ef57_rw_1920b290.png?h=b0bc1c16106b5595314e50d93dbcb76a"
+             data-srcset="https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/5b27cbf0-eeff-418e-8940-33ff75a3ef57_rw_600.png?h=5559f47ca8dd5384d885ccf5bc15f8e1 600w,https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/5b27cbf0-eeff-418e-8940-33ff75a3ef57_rw_1200.png?h=1e5bc581aa6db7310e8aae81d06a69f7 1200w,https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/5b27cbf0-eeff-418e-8940-33ff75a3ef57_rw_1920.png?h=b0bc1c16106b5595314e50d93dbcb76a 1657w,"
+             data-sizes="(max-width: 1657px) 100vw, 1657px"
+             width="1657"
+             height="0"
+             style="padding-bottom: 67.33%; background: rgba(0, 0, 0, 0.03)"
+             
+           >
+     </div>
+  
+
+    <div class="project-module module-caption-container js-caption-container align-left">
+      <div class="rich-text module-caption js-text-editable"><p>Website iteration with annotations highlighting changes</p></div>
+    </div>
+</div>
+
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+      <div class="tree-child-wrapper" style="flex: 1657000000">
+        
+        <div class="project-module module image project-module-image js-js-project-module"  style="padding-top: px;
+padding-bottom: px;
+">
+
+  
+
+  
+     <div class="js-lightbox" data-src="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/7b162582-83c9-43b5-b9db-290829f2a7b5d2d0.png?h=d509d181dcad13ad092361cde366c9ce">
+           <img
+             class="js-lazy e2e-site-project-module-image"
+             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+             data-src="../cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/7b162582-83c9-43b5-b9db-290829f2a7b5_rw_192076f5.png?h=f69dbe4c69c642b67a46b747f10c3137"
+             data-srcset="https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/7b162582-83c9-43b5-b9db-290829f2a7b5_rw_600.png?h=41a3451bcba2268909f897e8d6d99d99 600w,https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/7b162582-83c9-43b5-b9db-290829f2a7b5_rw_1200.png?h=defa5267ce9b7488d095c2f3d8913d72 1200w,https://cdn.myportfolio.com/c2b2a835-d311-4a23-bad7-640471e2b176/7b162582-83c9-43b5-b9db-290829f2a7b5_rw_1920.png?h=f69dbe4c69c642b67a46b747f10c3137 1657w,"
+             data-sizes="(max-width: 1657px) 100vw, 1657px"
+             width="1657"
+             height="0"
+             style="padding-bottom: 67.33%; background: rgba(0, 0, 0, 0.03)"
+             
+           >
+     </div>
+  
+
+    <div class="project-module module-caption-container js-caption-container align-left">
+      <div class="rich-text module-caption js-text-editable"><p>Additional iteration with highlighted changes</p></div>
+    </div>
+</div>
+
+        
+        
+        
+        
+        
+        
+        
+      </div>
+  </div>
+</div>
+
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: px;
+padding-bottom: px;
+  max-width: 1400px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="title"><span class="bold">Final Solution</span></div><div style="text-align:left;">The <span class="bold">final design</span> emphasized <span class="bold">simplicity,</span> <span class="bold">clarity,</span> and<span class="bold"> efficiency,</span> creating an experience that <span class="bold">empowers</span> mechanics and shop owners, <span class="bold">simplifies</span> customer interactions, and <span class="bold">boosts</span> engagement. Guided by iterative user <span class="bold">feedback,</span> the result is a product that is <span class="bold">intuitive, user-friendly,</span> and <span class="bold">effective.</span><span class="bold"></span></div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
+  <div class="rich-text js-text-editable module-text"><div><span class="bold">Average task completion time <span style="color:#ff0000;" class="texteditor-inline-color">decreased</span> from <span style="color:#ff0000;" class="texteditor-inline-color">10</span> minutes to <span style="color:#ff0000;" class="texteditor-inline-color">7</span> minutes</span>.</div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: px;
+padding-bottom: 15px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="line-height:9px;" class="texteditor-inline-lineheight"><span class="texteditor-inline-fontsize" style="font-size:38px;"><span style="color:#1c1c1c;" class="texteditor-inline-color"><span class="bold">Interactive Demo</span></span></span></div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module embed project-module-embed js-js-project-module" style="padding-top: px;
+padding-bottom: px;
+  max-width: 800px;
+">
+  <div class="embed-dimensions" style="max-width: 800px; max-height: 450px; margin: 0 auto;">
+                 <div class="embed-aspect-ratio" style="padding-bottom: 56.25%; position: relative; height: 0;">
+                   <iframe style="position:absolute; top:0; left:0; width:100%; height:100%;" src="https://embed.figma.com/proto/d9wcOf7Hf1it1gPsRjQCgG/DVI?node-id=36-22635&amp;node-type=canvas&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=5%3A3&amp;starting-point-node-id=36%3A22635&amp;show-proto-sidebar=1&amp;embed-host=share" allowfullscreen class="embed-content" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+                 </div>
+               </div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
+  <div class="rich-text js-text-editable module-text"><div><span class="bold"><span class="texteditor-inline-color" style="color:#ff0000;">87%</span> of users rated the redesigned dashboard as <span class="texteditor-inline-color" style="color:#ff0000;">"very easy to use."</span></span><br></div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: px;
+padding-bottom: px;
+  max-width: 1400px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="title"><span class="bold">Outcomes and Reflections</span></div><div style="text-align:left;" class="main-text">The redesigned Autoflow platform <span class="bold">achieved</span> measurable <span class="bold">success,</span> with a <span class="bold">35% increase</span> in customer satisfaction and a <span class="bold">25% reduction</span> in mechanics' task completion time <span class="bold">within three months.</span> Mobile usage also <span class="bold">rose by 40%,</span> highlighting <span class="bold">improved</span> accessibility and engagement across devices.</div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;"><span class="bold"><span style="color:#1c1c1c;" class="texteditor-inline-color">"The new platform has <span style="color:#ff0000;" class="texteditor-inline-color">streamlined <span class="texteditor-inline-color" style="color:#1c1c1c;">our</span> workflow</span> and made it <span style="color:#ff0000;" class="texteditor-inline-color">easier</span> to keep customers updated, which has <span style="color:#ff0000;" class="texteditor-inline-color">boosted</span> both our <span style="color:#ff0000;" class="texteditor-inline-color">efficiency</span> and our relationships with clients."</span></span> <span class="italic">— Maggie R</span></div></div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="padding-top: px;
+padding-bottom: px;
+  max-width: 1400px;
+">
+  <div class="rich-text js-text-editable module-text"><div style="text-align:left;" class="title"><span class="bold">Takeaways</span></div><div style="text-align:left;" class="main-text">• The <span class="bold">importance</span> of iterative <span class="bold">feedback</span> for refining complex workflows.</div><div style="text-align:left;">•<span class="bold"> Balancing </span>aesthetic <span class="bold">design</span> with <span class="bold">functionality</span> to improve <span class="bold">usability.</span></div><div style="text-align:left;">• Designing <span class="bold">mobile-responsive</span> interfaces to <span class="bold">meet diverse</span> user <span class="bold">needs.</span></div><div style="text-align:left;">• Deep <span class="bold">research</span> into user <span class="bold">pain points</span> leads to a more <span class="bold">impactful</span> design <span class="bold">solution.</span></div></div>
+</div>
+
+              
+              
+              
+              
+              <div class="js-project-module project-module module button project-module-button" data-id="m673ec613e56b13f5f1eb694db2d1a5c9a1e72d3337d29c0d855ba"  style=" padding-top: 15px;
+padding-bottom: px;
+">
+    <div class="button-container" style="">
+      
+      <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:5caea45c-a76e-4e7a-a1b1-5b4d5598d648" target="_blank" class="button-module preserve-whitespace--nowrap">Resumé</a>
+    </div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <div class="js-project-module project-module module button project-module-button" data-id="m673ec64db9c4d4186c5c7aea758a9f0ccd2caf868d3c0762f29a1"  style=" padding-top: 0px;
+padding-bottom: 35px;
+">
+    <div class="button-container" style="">
+      <a href="contact.html" class="button-module preserve-whitespace--nowrap">Contact Me</a>
+      
+    </div>
+</div>
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <!-- Navigation to Zing -->
+              <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="text-align:center;margin-top:48px;">
+                <a href="zing-delivery.html" style="color:#ff0000;font-weight:bold;font-size:1.1em;">→ Next Project: Zing</a>
+                <br>
+                <a href="ui-ux.html" style="color:#1c1c1c;font-size:0.95em;display:inline-block;margin-top:8px;">← Back to Portfolio</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section class="back-to-top" data-hover-hint="backToTop">
+          <a href="#"><span class="arrow">&uarr;</span><span class="preserve-whitespace">Back to Top</span></a>
+        </section>
+        <a class="back-to-top-fixed js-back-to-top back-to-top-fixed-with-panel" data-hover-hint="backToTop" data-hover-hint-placement="top-start" href="#">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 26 26" style="enable-background:new 0 0 26 26;" xml:space="preserve" class="icon icon-back-to-top">
+          <g>
+            <path d="M13.8,1.3L21.6,9c0.1,0.1,0.1,0.3,0.2,0.4c0.1,0.1,0.1,0.3,0.1,0.4s0,0.3-0.1,0.4c-0.1,0.1-0.1,0.3-0.3,0.4
+              c-0.1,0.1-0.2,0.2-0.4,0.3c-0.2,0.1-0.3,0.1-0.4,0.1c-0.1,0-0.3,0-0.4-0.1c-0.2-0.1-0.3-0.2-0.4-0.3L14.2,5l0,19.1
+              c0,0.2-0.1,0.3-0.1,0.5c0,0.1-0.1,0.3-0.3,0.4c-0.1,0.1-0.2,0.2-0.4,0.3c-0.1,0.1-0.3,0.1-0.5,0.1c-0.1,0-0.3,0-0.4-0.1
+              c-0.1-0.1-0.3-0.1-0.4-0.3c-0.1-0.1-0.2-0.2-0.3-0.4c-0.1-0.1-0.1-0.3-0.1-0.5l0-19.1l-5.7,5.7C6,10.8,5.8,10.9,5.7,11
+              c-0.1,0.1-0.3,0.1-0.4,0.1c-0.2,0-0.3,0-0.4-0.1c-0.1-0.1-0.3-0.2-0.4-0.3c-0.1-0.1-0.1-0.2-0.2-0.4C4.1,10.2,4,10.1,4.1,9.9
+              c0-0.1,0-0.3,0.1-0.4c0-0.1,0.1-0.3,0.3-0.4l7.7-7.8c0.1,0,0.2-0.1,0.2-0.1c0,0,0.1-0.1,0.2-0.1c0.1,0,0.2,0,0.2-0.1
+              c0.1,0,0.1,0,0.2,0c0,0,0.1,0,0.2,0c0.1,0,0.2,0,0.2,0.1c0.1,0,0.1,0.1,0.2,0.1C13.7,1.2,13.8,1.2,13.8,1.3z"/>
+          </g>
+          </svg>
+        </a>
+  </div>
+        </main>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Navigation to Zing -->
+  <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text" style="text-align:center;margin-top:48px;">
+    <a href="zing-delivery.html" style="color:#ff0000;font-weight:bold;font-size:1.1em;">→ Next Project: Zing</a>
+    <br>
+    <a href="ui-ux.html" style="color:#1c1c1c;font-size:0.95em;display:inline-block;margin-top:8px;">← Back to Portfolio</a>
+  </div>
+</body>
+<script type="text/javascript">
+  // fix for Safari's back/forward cache
+  window.onpageshow = function(e) {
+    if (e.persisted) { window.location.reload(); }
+  };
+</script>
+  <script type="text/javascript">var __config__ = {"page_id":"p6712ec556517c76baddc2a65122f7880f45762a013299e48b5f6e","theme":{"name":"jackie\/rose"},"pageTransition":true,"linkTransition":true,"disableDownload":false,"localizedValidationMessages":{"required":"This field is required","Email":"This field must be a valid email address"},"lightbox":{"enabled":true,"color":{"opacity":0.94,"hex":"#fff"}},"cookie_banner":{"enabled":false}};</script>
+  <script type="text/javascript" src="site/translations5814?cb=867137821b7eaf38fd2c2ba4ae0fe00a423eeec4"></script>
+  <script type="text/javascript" src="dist/js/main5814.js?cb=867137821b7eaf38fd2c2ba4ae0fe00a423eeec4"></script>
+<script>
+// Smooth scroll and scroll spy logic
+(function() {
+  const sectionIds = [
+    'overview', 'challenge', 'research', 'personas', 'wireframes', 'final-design', 'outcome'
+  ];
+  const navLinks = Array.from(document.querySelectorAll('#section-nav a'));
+  const modalLinks = Array.from(document.querySelectorAll('#section-modal a'));
+  function scrollToSection(e) {
+    const href = this.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const target = document.getElementById(href.slice(1));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (window.innerWidth < 769) closeModal();
+      }
+    }
+  }
+  navLinks.forEach(link => link.addEventListener('click', scrollToSection));
+  modalLinks.forEach(link => link.addEventListener('click', scrollToSection));
+  // Scroll spy
+  function onScroll() {
+    let scrollPos = window.scrollY || document.documentElement.scrollTop;
+    let offset = 120;
+    sectionIds.forEach((id, i) => {
+      const section = document.getElementById(id);
+      if (section) {
+        const top = section.offsetTop - offset;
+        const bottom = top + section.offsetHeight;
+        if (scrollPos >= top && scrollPos < bottom) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          modalLinks.forEach(l => l.classList.remove('active'));
+          if (navLinks[i]) navLinks[i].classList.add('active');
+          if (modalLinks[i]) modalLinks[i].classList.add('active');
+        }
+      }
+    });
+  }
+  window.addEventListener('scroll', onScroll);
+  // Mobile modal logic
+  const jumpBtn = document.getElementById('jump-to-section-btn');
+  const modal = document.getElementById('section-modal');
+  const closeBtn = modal.querySelector('.close-modal');
+  function openModal() {
+    modal.classList.add('open');
+    modal.querySelector('a').focus();
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    jumpBtn.focus();
+  }
+  jumpBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+  // Trap focus in modal
+  modal.addEventListener('keydown', function(e) {
+    if (!modal.classList.contains('open')) return;
+    const focusable = Array.from(modal.querySelectorAll('a,button'));
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.key === 'Tab') {
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Mirrored from jonouyang.net/autoflow by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Jul 2025 07:06:53 GMT -->
+</html>
