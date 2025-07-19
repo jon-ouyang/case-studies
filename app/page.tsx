@@ -185,7 +185,7 @@ export default function AutoflowPortfolio() {
             <p
               className="text-xl text-gray-700 mb-6"
             >
-              Led the end-to-end redesign of a SaaS platform for independent auto shops, driving a 30% increase in operational efficiency and elevating customer experience through strategic UX and product decisions.
+              Reimagined a complex B2B auto shop SaaS, streamlining task flows and boosting operational efficiency by 30%. Led UX, UI, and product strategy to support shop owners in managing jobs, parts, and payments with dramatically less friction.
             </p>
 
             <div

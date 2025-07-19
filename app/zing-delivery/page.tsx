@@ -195,11 +195,11 @@ export default function ZingCaseStudy() {
 
             {/* Title and Description - below image like Autoflow */}
             <div className="max-w-4xl mb-4">
-              <h1 className="text-3xl font-bold mb-3 text-left" style={{ color: '#1c1c1c' }}>
+              <h1 className="text-4xl font-bold mb-3 text-left" style={{ color: '#1c1c1c' }}>
                 Zing: Modernizing Food Delivery
               </h1>
-              <div className="text-left mb-4 text-base" style={{ lineHeight: 1.6 }}>
-                Led the end-to-end redesign of a food delivery platform, driving a 25% increase in order completion efficiency and elevating customer experience through strategic UX and product decisions.
+              <div className="text-left mb-4 text-lg" style={{ lineHeight: 1.6 }}>
+                Designed and launched Zing's food delivery platform from the ground up—creating the full UX architecture, UI system, and product flow. Achieved a 25% boost in order completion by optimizing user behavior, interface clarity, and checkout logic.
               </div>
             </div>
 
