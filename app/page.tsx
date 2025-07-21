@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, Users, Clock, Target, CheckCircle, X, ChevronUp } from "lucide-react"
 import { useState, useEffect } from "react"
 import { SectionNav, Section } from "@/components/ui/section-nav"
+import Head from 'next/head';
 
 // Fade In Animation Component
 function FadeInSection({ children, delay = 0, className = "", id }: { children: React.ReactNode; delay?: number; className?: string; id?: string }) {
@@ -144,6 +145,10 @@ export default function AutoflowPortfolio() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Head>
+        <title>Autoflow</title>
+        <link rel="icon" href="/pencil.svg" type="image/svg+xml" />
+      </Head>
       {/* Minimalist Back Arrow */}
       <a
         href="https://jonouyang.net/ui-ux"
@@ -1246,7 +1251,7 @@ export default function AutoflowPortfolio() {
                   Contact Me
                 </a>
                 <a
-                  href="/zing-delivery"
+                  href="https://case-studies-pied.vercel.app/zing-delivery"
                   className="border-2 border-red-600 text-red-600 hover:bg-red-50 font-bold py-4 px-8 rounded-2xl text-base md:text-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-sm hover:scale-105 focus:scale-105 max-w-xs md:max-w-sm w-auto mx-auto whitespace-nowrap"
                 >
                   <span className="inline-block" style={{ fontSize: '1.3em', marginRight: 4 }}>&#8250;</span> Next Project: Zing
