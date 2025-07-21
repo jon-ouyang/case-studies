@@ -11,6 +11,7 @@ import { ArrowLeft } from "lucide-react";
 import { X } from "lucide-react";
 import { useState } from "react";
 import { SectionNav, Section } from "../../components/ui/section-nav";
+import { ChevronUp } from "lucide-react";
 
 // Lightbox Component (copied from Autoflow)
 function Lightbox({ src, alt, isOpen, onClose }: { src: string; alt: string; isOpen: boolean; onClose: () => void }) {
@@ -137,6 +138,14 @@ export default function ZingCaseStudy() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState("");
   const [lightboxAlt, setLightboxAlt] = useState("");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 200);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   function openLightbox(src: string, alt: string) {
     setLightboxSrc(src);
@@ -306,13 +315,12 @@ export default function ZingCaseStudy() {
                 {/* Left: Headshot and basic info */}
                 <div className="flex flex-col items-center md:items-start md:w-1/3 min-w-[200px]">
                   <div className="w-[120px] h-[120px] mb-4 flex items-center justify-center">
-                    <ClickableImage
+                    <Image
                       src="/persona-marcus.jpg"
                       alt="Marcus Reed"
                       width={120}
                       height={120}
                       className="rounded-full object-cover w-full h-full border-4 border-white shadow"
-                      onClick={() => openLightbox("/persona-marcus.jpg", "Marcus Reed")}
                     />
                   </div>
                   <div className="h-2 w-16 bg-[#e53935] rounded-full mb-4"></div>
@@ -336,7 +344,7 @@ export default function ZingCaseStudy() {
                         <li>Healthy options</li>
                         <li>Real-time order tracking</li>
                       </ul>
-                      <div className="font-bold inline">Personality:</div> <span className="text-gray-700">Analytical, time-conscious, loyal to brands that deliver.</span>
+                      <div className="font-bold inline mt-3">Personality:</div> <span className="text-gray-700">Analytical, time-conscious, loyal to brands that deliver.</span>
                     </div>
                     <div className="flex-1">
                       <div className="font-bold mb-1">Pain Points</div>
@@ -346,7 +354,7 @@ export default function ZingCaseStudy() {
                         <li>Lack of transparency</li>
                         <li>Noisy notifications</li>
                       </ul>
-                      <div className="font-bold inline">Tech Habits:</div> <span className="text-gray-700">Uses mobile for everything, automates orders, prefers chat support.</span>
+                      <div className="font-bold inline mt-3">Tech Habits:</div> <span className="text-gray-700">Uses mobile for everything, automates orders, prefers chat support.</span>
                     </div>
                   </div>
                 </div>
@@ -355,13 +363,12 @@ export default function ZingCaseStudy() {
               <div className="flex flex-col md:flex-row bg-[#fafbfc] rounded-2xl shadow-xl border border-gray-100 p-8 gap-8 items-stretch">
                 <div className="flex flex-col items-center md:items-start md:w-1/3 min-w-[200px]">
                   <div className="w-[120px] h-[120px] mb-4 flex items-center justify-center">
-                    <ClickableImage
+                    <Image
                       src="/persona-emily.jpg"
                       alt="Emily Carter"
                       width={120}
                       height={120}
                       className="rounded-full object-cover w-full h-full border-4 border-white shadow"
-                      onClick={() => openLightbox("/persona-emily.jpg", "Emily Carter")}
                     />
                   </div>
                   <div className="h-2 w-16 bg-[#e53935] rounded-full mb-4"></div>
@@ -394,7 +401,7 @@ export default function ZingCaseStudy() {
                         <li>Difficult reordering</li>
                         <li>App crashes under load</li>
                       </ul>
-                      <div className="font-bold inline">Tech Habits:</div> <span className="text-gray-700">Schedules orders, uses family profiles, prefers SMS updates.</span>
+                      <div className="font-bold inline mt-3">Tech Habits:</div> <span className="text-gray-700">Schedules orders, uses family profiles, prefers SMS updates.</span>
                     </div>
                   </div>
                 </div>
@@ -403,13 +410,12 @@ export default function ZingCaseStudy() {
               <div className="flex flex-col md:flex-row bg-[#fafbfc] rounded-2xl shadow-xl border border-gray-100 p-8 gap-8 items-stretch">
                 <div className="flex flex-col items-center md:items-start md:w-1/3 min-w-[200px]">
                   <div className="w-[120px] h-[120px] mb-4 flex items-center justify-center">
-                    <ClickableImage
+                    <Image
                       src="/persona-jasmine.jpg"
                       alt="Jasmine Lee"
                       width={120}
                       height={120}
                       className="rounded-full object-cover w-full h-full border-4 border-white shadow"
-                      onClick={() => openLightbox("/persona-jasmine.jpg", "Jasmine Lee")}
                     />
                   </div>
                   <div className="h-2 w-16 bg-[#e53935] rounded-full mb-4"></div>
@@ -442,7 +448,7 @@ export default function ZingCaseStudy() {
                         <li>Lack of student deals</li>
                         <li>Slow notifications</li>
                       </ul>
-                      <div className="font-bold inline">Tech Habits:</div> <span className="text-gray-700">Uses push notifications, shares links, posts reviews.</span>
+                      <div className="font-bold inline mt-3">Tech Habits:</div> <span className="text-gray-700">Uses push notifications, shares links, posts reviews.</span>
                     </div>
                   </div>
                 </div>
@@ -685,6 +691,10 @@ export default function ZingCaseStudy() {
             {/* Key Design Decisions */}
             <div className="bg-gray-50 rounded-xl p-6 mb-6">
               <h3 className="text-xl font-bold mb-6 text-left">Key Design Decisions</h3>
+              <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 text-base text-red-700 font-bold rounded shadow-sm flex items-center gap-2">
+                <svg width='20' height='20' fill='none' viewBox='0 0 24 24' stroke='#e53935' className='inline-block mr-2'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z' /></svg>
+                Reduced user friction from 6 steps to 3. Streamlined onboarding flow projected to save ~20 seconds per session.
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-white rounded-lg p-4 border border-gray-200">
                   <h4 className="font-semibold mb-2 text-base" style={{ color: '#e53935' }}>Category-Driven Discovery</h4>
@@ -901,40 +911,6 @@ export default function ZingCaseStudy() {
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col md:flex-row gap-4 justify-center items-center mt-8">
-              <a 
-                href="/" 
-                className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
-              >
-                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-                Next Project: Autoflow
-              </a>
-              <a 
-                href="https://www.figma.com/file/0cciebjkt7KvyUBevWYQDT/Food-App-Project" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
-              >
-                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                Explore Figma File
-              </a>
-              <a 
-                href="https://jonouyang.net/contact" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white border-2 border-red-600 text-red-600 hover:bg-red-50 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
-              >
-                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                Contact Me
-              </a>
-            </div>
           </AnimatedSection>
         </SectionContainer>
 
@@ -979,6 +955,56 @@ export default function ZingCaseStudy() {
         </SectionContainer>
 
       </main>
+      {/* MODERN, UNIFIED CTA BLOCK - FULL REDESIGN, UNCONTAINED (MOVED TO END) */}
+      <section className="w-full flex flex-col items-center justify-center pt-6 pb-24 px-2 bg-transparent">
+        <div className="w-full flex flex-col items-center">
+          <div className="w-full flex flex-col items-center mb-8">
+            <div className="w-24 h-2 mb-6 rounded-full bg-gradient-to-r from-[#e53935] via-[#ffb3b3] to-[#e53935] opacity-80" />
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-3 tracking-tight" style={{ color: '#1c1c1c', letterSpacing: '-0.01em', lineHeight: 1.1 }}>
+              Let's create something better together.
+            </h2>
+            <p className="text-xl text-gray-600 text-center mb-8 max-w-2xl">Ready to collaborate or want to see more?</p>
+          </div>
+          <div className="flex flex-col md:flex-row gap-6 justify-center items-center w-full max-w-2xl">
+            <a
+              href="https://jonouyang.net/contact"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-lg scale-105 hover:scale-110 focus:scale-110 max-w-xs md:max-w-sm w-auto mx-auto whitespace-nowrap"
+              style={{ boxShadow: '0 4px 24px 0 rgba(229,57,53,0.10)' }}
+            >
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              Contact Me
+            </a>
+            <a
+              href="/autoflow"
+              className="border-2 border-red-600 text-red-600 hover:bg-red-50 font-bold py-4 px-8 rounded-2xl text-base md:text-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-sm hover:scale-105 focus:scale-105 max-w-xs md:max-w-sm w-auto mx-auto whitespace-nowrap"
+            >
+              <span className="inline-block" style={{ fontSize: '1.3em', marginRight: 4 }}>&#8250;</span> Next Project: Autoflow
+            </a>
+            <a
+              href="https://www.figma.com/file/0cciebjkt7KvyUBevWYQDT/Food-App-Project"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-sm hover:scale-105 focus:scale-105 max-w-xs md:max-w-sm w-auto mx-auto whitespace-nowrap"
+            >
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+              Explore Figma File
+            </a>
+          </div>
+        </div>
+      </section>
+      {/* Return to Top Button (guaranteed outside main content) */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          aria-label="Return to top"
+          className="fixed bottom-6 right-6 z-[9999] bg-white border border-gray-200 shadow-lg rounded-full p-3 transition-opacity duration-300 hover:bg-red-50 hover:border-red-400 hover:shadow-xl"
+          style={{ opacity: showScrollTop ? 1 : 0 }}
+        >
+          <ChevronUp size={28} className="text-red-500" />
+        </button>
+      )}
     </div>
   );
 } 

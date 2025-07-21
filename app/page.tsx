@@ -8,7 +8,7 @@ import { useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowLeft, Users, Clock, Target, CheckCircle, X } from "lucide-react"
+import { ArrowLeft, Users, Clock, Target, CheckCircle, X, ChevronUp } from "lucide-react"
 import { useState, useEffect } from "react"
 import { SectionNav, Section } from "@/components/ui/section-nav"
 
@@ -121,6 +121,14 @@ export default function AutoflowPortfolio() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState("");
   const [lightboxAlt, setLightboxAlt] = useState("");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 200);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   function openLightbox(src: string, alt: string) {
     setLightboxSrc(src);
@@ -266,7 +274,7 @@ export default function AutoflowPortfolio() {
                 {
                   title: "User Pain Points",
                   color: "border-orange-200",
-                  titleColor: "text-orange-800",
+                  titleColor: "text-yellow-800",
                   items: [
                     "Confusing navigation structure",
                     "Inconsistent visual design",
@@ -1180,7 +1188,7 @@ export default function AutoflowPortfolio() {
             <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2, ease: "easeOut" }}>
               <Card className="hover:shadow-lg transition-shadow duration-300 max-w-xl mx-auto">
                 <CardContent className="p-6">
-                  <h4 className="font-semibold mb-4 text-red-800">What I Learned</h4>
+                  <h4 className="font-semibold mb-4" style={{ color: '#1c1c1c' }}>What I Learned</h4>
                   <ul className="space-y-4 text-gray-700">
                     <li><span className="font-bold text-[#e53935]">User research is everything:</span> Early interviews and journey mapping revealed pain points we never would have guessed.</li>
                     <li><span className="font-bold text-[#e53935]">Mobile-first design is non-negotiable:</span> The majority of Zing’s users order on their phones, so every decision was made with mobile in mind.</li>
@@ -1193,7 +1201,7 @@ export default function AutoflowPortfolio() {
             <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2, ease: "easeOut" }}>
               <Card className="hover:shadow-lg transition-shadow duration-300 max-w-sm mx-auto">
                 <CardContent className="p-3">
-                  <h4 className="font-semibold mb-4 text-red-800">What I'd Do Differently</h4>
+                  <h4 className="font-semibold mb-4" style={{ color: '#1c1c1c' }}>What I'd Do Differently</h4>
                   <ul className="space-y-4 text-gray-700">
                     <li><span className="font-bold text-[#e53935]">• Earlier accessibility audits:</span> Would conduct comprehensive accessibility testing during wireframe stage, not just final designs.</li>
                     <li><span className="font-bold text-[#e53935]">• Broader user diversity:</span> Include mechanics with varying technical comfort levels and physical abilities from project start.</li>
@@ -1210,37 +1218,66 @@ export default function AutoflowPortfolio() {
           <h2 className="text-2xl font-bold mb-4 mt-12" style={{ color: '#e53935' }}>Why This Work Matters</h2>
           <div className="bg-red-50 p-6 rounded-lg">
                             <h4 className="font-semibold mb-3" style={{ color: '#1c1c1c' }}>Looking Forward</h4>
-            <p className="text-red-700 mb-4">
+            <p className="mb-4" style={{ color: '#1c1c1c' }}>
               This project reinforced my belief in user-centered design and the transformative power of thoughtful research. The measurable business outcomes validate that investing in proper UX process doesn't just create prettier interfaces—it drives real business value and improves people's working lives.
             </p>
-            <p className="text-red-700">
+            <p style={{ color: '#1c1c1c' }}>
               The success of Autoflow has opened conversations about expanding the platform to serve other service industries, demonstrating how good design can scale beyond its original context when built on solid user research foundations.
             </p>
           </div>
 
-          {/* Navigation to Zing and Portfolio */}
-          <div className="flex flex-col items-center my-16">
-            <div className="flex flex-col items-center gap-4 w-full max-w-lg">
-              <a
-                href="/zing-delivery"
-                className="flex items-center gap-2 text-lg font-bold text-white bg-[#1c1c1c] px-6 py-3 rounded-full transition-all duration-200 hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
-                style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', letterSpacing: '0.03em' }}
-              >
-                Next Project: Zing
-              </a>
-              <a
-                href="https://jonouyang.net/contact"
-                className="flex items-center gap-2 text-base font-semibold text-white bg-[#1c1c1c] px-6 py-3 rounded-full transition-all duration-200 hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 mt-2"
-                style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', letterSpacing: '0.01em' }}
-              >
-                Contact Me
-              </a>
+          {/* MODERN, UNIFIED CTA BLOCK - FULL REDESIGN, UNCONTAINED */}
+          <section className="w-full flex flex-col items-center justify-center pt-32 pb-1 px-2 bg-transparent">
+            <div className="w-full flex flex-col items-center">
+              <div className="w-full flex flex-col items-center mb-8">
+                <div className="w-24 h-2 mb-6 rounded-full bg-gradient-to-r from-[#e53935] via-[#ffb3b3] to-[#e53935] opacity-80" />
+                <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-3 tracking-tight" style={{ color: '#1c1c1c', letterSpacing: '-0.01em', lineHeight: 1.1 }}>
+                  Let's create something better together.
+                </h2>
+                <p className="text-xl text-gray-600 text-center mb-8 max-w-2xl">Ready to collaborate or want to see more?</p>
+              </div>
+              <div className="flex flex-col md:flex-row gap-6 justify-center items-center w-full max-w-2xl">
+                <a
+                  href="https://jonouyang.net/contact"
+                  className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-lg scale-105 hover:scale-110 focus:scale-110 max-w-xs md:max-w-sm w-auto mx-auto whitespace-nowrap"
+                  style={{ boxShadow: '0 4px 24px 0 rgba(229,57,53,0.10)' }}
+                >
+                  <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                  Contact Me
+                </a>
+                <a
+                  href="/zing-delivery"
+                  className="border-2 border-red-600 text-red-600 hover:bg-red-50 font-bold py-4 px-8 rounded-2xl text-base md:text-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-sm hover:scale-105 focus:scale-105 max-w-xs md:max-w-sm w-auto mx-auto whitespace-nowrap"
+                >
+                  <span className="inline-block" style={{ fontSize: '1.3em', marginRight: 4 }}>&#8250;</span> Next Project: Zing
+                </a>
+                <a
+                  href="https://www.figma.com/file/34vP7VrZoCaIWwM96A5LT8/Working-File---Depracated"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-sm hover:scale-105 focus:scale-105 max-w-xs md:max-w-sm w-auto mx-auto whitespace-nowrap"
+                >
+                  <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                  Explore Figma File
+                </a>
+              </div>
             </div>
-          </div>
+          </section>
 
         </AnimatedSection>
       </main>
       <Lightbox src={lightboxSrc} alt={lightboxAlt} isOpen={lightboxOpen} onClose={closeLightbox} />
+      {/* Return to Top Button (guaranteed outside main content) */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          aria-label="Return to top"
+          className="fixed bottom-6 right-6 z-[9999] bg-white border border-gray-200 shadow-lg rounded-full p-3 transition-opacity duration-300 hover:bg-red-50 hover:border-red-400 hover:shadow-xl"
+          style={{ opacity: showScrollTop ? 1 : 0 }}
+        >
+          <ChevronUp size={28} className="text-red-500" />
+        </button>
+      )}
     </div>
   )
 }
