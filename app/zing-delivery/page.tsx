@@ -12,7 +12,6 @@ import { X } from "lucide-react";
 import { useState } from "react";
 import { SectionNav, Section } from "../../components/ui/section-nav";
 import { ChevronUp } from "lucide-react";
-import Head from 'next/head';
 
 // Lightbox Component (copied from Autoflow)
 function Lightbox({ src, alt, isOpen, onClose }: { src: string; alt: string; isOpen: boolean; onClose: () => void }) {
@@ -162,31 +161,6 @@ export default function ZingCaseStudy() {
 
   return (
     <div className="min-h-screen bg-white font-sans" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', color: '#1c1c1c' }}>
-      <Head>
-        <title>Zing</title>
-        <link rel="icon" href="/pencil.svg" type="image/svg+xml" />
-      </Head>
-      {/* Minimalist Back Arrow (matches Autoflow) */}
-      <a
-        href="https://jonouyang.net/ui-ux"
-        aria-label="Back to Portfolio"
-        style={{
-          position: 'fixed',
-          top: 20,
-          left: 20,
-          zIndex: 2000,
-          display: 'inline-block',
-          padding: 0,
-          background: 'none',
-          border: 'none',
-          cursor: 'pointer',
-        }}
-      >
-        <svg width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polyline points="18,6 10,14 18,22" stroke="#fff" strokeWidth="6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-          <polyline points="18,6 10,14 18,22" stroke="#1c1c1c" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </a>
       
       {/* Section Navigation */}
       <SectionNav sections={SECTIONS} />
